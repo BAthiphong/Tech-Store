@@ -1,0 +1,25 @@
+.product-category-header {
+  display: flex;
+}
+
+.parent {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-column-gap: 14px;
+  grid-row-gap: 24px;
+  margin-top: 24px;
+  text-align: center;
+}
+
+.product-category-name {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: white;
+  border-radius: 10px;
+  border: 1px;
+  height: 64px;
+  align-items: center;
+  border: 1px solid #9CA3AF;
+}

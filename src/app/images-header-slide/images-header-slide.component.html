@@ -1,0 +1,25 @@
+<section class="img-header">
+  <!-- <img class="img-detail" src="https://placehold.co/1240x700" alt="" /> -->
+  <p-galleria
+    [value]="images"
+    [responsiveOptions]="responsiveOptions"
+    [numVisible]="5"
+    [showThumbnails]="false"
+    [showIndicators]="true"
+    [changeItemOnIndicatorHover]="true"
+    [showIndicatorsOnItem]="true"
+    [autoPlay]="true"
+    [transitionInterval]="3000"
+  >
+    <!-- 3 วินาที -->
+    >
+    <ng-template pTemplate="item" let-item>
+      <img class="img-detail" [src]="item.previewImageSrc" style="width: 100%; display: block" />
+    </ng-template>
+  </p-galleria>
+</section>
+
+<section class="two-image-show">
+  <img class="show-img" src="/images/banner/promote_1.png" alt="" />
+  <img class="show-img" src="/images/banner/promote_2.png" alt="" />
+</section>

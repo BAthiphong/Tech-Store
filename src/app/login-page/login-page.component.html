@@ -1,0 +1,105 @@
+<section class="login-page">
+  <div class="login-container" #container>
+    <!------------------------------------ Sing up ------------------------------------>
+    <div class="form-container sign-up">
+      <form>
+        <div class="form-header">
+          <p style="color: #1e429f">TECHE</p>
+          <p>STOR</p>
+        </div>
+        <div class="form-input">
+          <p>สมัครสมาชิก</p>
+          <input
+            type="text"
+            name="username"
+            placeholder="บัญชีผู้ใช้"
+            [(ngModel)]="registerObj.username"
+          />
+          <input
+            type="email"
+            name="email"
+            placeholder="Email"
+            [(ngModel)]="registerObj.email"
+          />
+          <input
+            type="password"
+            name="password"
+            placeholder="Password"
+            [(ngModel)]="registerObj.password"
+          />
+          <div class="form-forgetpassword">
+            <p>จดจำบัญชีฉันไว้</p>
+            <p>ลืมรหัสผ่าน</p>
+          </div>
+          <button type="button" (click)="onRegister()">Sign Up</button>
+        </div>
+
+        <div class="btn-form">
+          <div class="header-border">
+            <div class="borders"></div>
+            <p>หรือ</p>
+            <div class="borders"></div>
+          </div>
+          <img src="/icons/icon-google-login.png" alt="" />
+          <!-- เพิ่มปุ่ม Sign Up ที่นี่ -->
+          <div class="btn-signup">
+            <p>มีบัญชีผู้ใช้แล้ว?</p>
+            <button type="button" (click)="toggleLogin()">
+              <p>เข้าสู่ระบบ</p>
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+    <!------------------------------------ Sing in ------------------------------------>
+    <div class="form-container sign-in">
+      <form>
+        <div class="form-header">
+          <p style="color: #1e429f">TECHE</p>
+          <p>STOR</p>
+        </div>
+        <div class="form-input">
+          <p>เข้าสู่ระบบ</p>
+          <input
+            type="text"
+            name="username"
+            placeholder="บัญชีผู้ใช้"
+            [(ngModel)]="loginObj.usernameOrEmail"
+          />
+
+          <input
+            type="password"
+            name="password"
+            placeholder="Password"
+            [(ngModel)]="loginObj.password"
+          />
+          <div class="form-forgetpassword">
+            <p>จดจำบัญชีฉันไว้</p>
+            <p>ลืมรหัสผ่าน</p>
+          </div>
+          <button type="button" (click)="onLogin()">Sign In</button>
+        </div>
+
+        <div class="btn-form">
+          <div class="header-border">
+            <div class="borders"></div>
+            <p>หรือ</p>
+            <div class="borders"></div>
+          </div>
+          <img src="/icons/icon-google-login.png" alt="" />
+          <!-- เพิ่มปุ่ม Sign Up ที่นี่ -->
+          <div class="btn-signup">
+            <p>ยังไม่มีบัญชีผู้ใช้?</p>
+            <button href="/" type="button" (click)="toggleRegister()">
+              <p>สมัครสมาชิก</p>
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <div class="toggle-container">
+      <img src="/images/login_img.png" alt="" />
+    </div>
+  </div>
+</section>

@@ -1,0 +1,21 @@
+<p-carousel
+  [value]="images"
+  [numVisible]="5"
+  [numScroll]="3"
+  [circular]="true"
+  [responsiveOptions]="responsiveOptions"
+>
+  <ng-template pTemplate="item" let-item>
+    <div class="product-card">
+      <div class="product-img">
+        <img [src]="item.source" [alt]="item.alt" alt="" />
+      </div>
+      <div class="product-detail">
+        <p>{{ item.name }}</p>
+      </div>
+      <div class="product-price">
+        <p>฿ {{ item.price | number}}</p>
+      </div>
+    </div>
+  </ng-template>
+</p-carousel>

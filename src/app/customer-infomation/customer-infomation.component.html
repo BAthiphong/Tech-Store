@@ -1,0 +1,116 @@
+<!-- กรณีไม่มีข้อมูลลูกค้า -->
+<div *ngIf="showForm && !editInfomation" class="infomation">
+  <div class="infomation-navbar">
+    <div class="nav-bar-left">
+      <img src="/icons/icon_acc.png" alt="icon" />
+      <p>ข้อมูลส่วนตัว</p>
+    </div>
+    <div class="nav-bar-right" (click)="toggleEditMode()">
+      <div style="text-decoration: underline; cursor: pointer">เพิ่มข้อมูล</div>
+    </div>
+  </div>
+  <div class="infomation-profile">กรุณากรอกข้อมูลส่วนตัว</div>
+</div>
+
+<!-- กรณีกำลังแก้ไขข้อมูล -->
+<div *ngIf="editInfomation && customer" class="infomation">
+  <div class="infomation-navbar">
+    <div class="nav-bar-left">
+      <img src="/icons/icon_acc.png" alt="icon" />
+      <p>แก้ไขข้อมูลส่วนตัว</p>
+    </div>
+    <div class="nav-bar-right" (click)="cancelEdit()">
+      <div style="text-decoration: underline; cursor: pointer">กลับ</div>
+    </div>
+  </div>
+  <form (ngSubmit)="saveChanges()" class="update-infomation-profile">
+    <div class="infomation-detail">
+      <p>รหัสลูกค้า</p>
+      <input placeholder="xxxx-xxx-xxx-xxx" readonly [value]="customerId" />
+    </div>
+    <div class="infomation-grid">
+      <div class="infomation-detail">
+        <p>ชื่อ</p>
+        <input type="text" [(ngModel)]="customer.firstName" name="firstName" />
+      </div>
+      <div class="infomation-detail">
+        <p>นามสกุล</p>
+        <input type="text" [(ngModel)]="customer.lastName" name="lastName" />
+      </div>
+    </div>
+    <div class="infomation-grid">
+      <div class="infomation-detail">
+        <p>หมายเลขโทรศัพท์</p>
+        <input
+          type="text"
+          [(ngModel)]="customer.phoneNumber"
+          name="phoneNumber"
+        />
+      </div>
+      <div class="infomation-detail">
+        <p>วันเดือนปีเกิด</p>
+        <input
+          type="date"
+          [(ngModel)]="customer.dateOfBirth"
+          name="dateOfBirth"
+        />
+      </div>
+    </div>
+    <div class="btn-submit">
+      <button type="submit">บันทึกข้อมูล</button>
+    </div>
+  </form>
+</div>
+
+<!-- กรณีข้อมูลสมบูรณ์แล้ว -->
+<div *ngIf="!editInfomation && detailComplete && customer" class="infomation">
+  <div class="infomation-navbar">
+    <div class="nav-bar-left">
+      <img src="/icons/icon_acc.png" alt="icon" />
+      <p>ข้อมูลส่วนตัว</p>
+    </div>
+    <div class="nav-bar-right" (click)="toggleEditMode()">
+      <div style="text-decoration: underline; cursor: pointer">แก้ไข</div>
+    </div>
+  </div>
+  <div class="profile-detail">
+    <div class="image-frame">
+      <img src="https://placehold.co/600x400" alt="Image" />
+    </div>
+    <div class="detail-header">
+      <p>{{ customer.firstName }} {{ customer.lastName }}</p>
+    </div>
+  </div>
+  <div class="profile-detail">
+    <div class="detail">
+      <p>รหัสลูกค้า :</p>
+    </div>
+    <div class="detail">
+      <p>{{ customerId }}</p>
+    </div>
+  </div>
+  <div class="profile-detail">
+    <div class="detail">
+      <p>ชื่อ - นามสกุล :</p>
+    </div>
+    <div class="detail">
+      <p>{{ customer.firstName }} {{ customer.lastName }}</p>
+    </div>
+  </div>
+  <div class="profile-detail">
+    <div class="detail">
+      <p>หมายเลขโทรศัพท์ :</p>
+    </div>
+    <div class="detail">
+      <p>{{ customer.phoneNumber }}</p>
+    </div>
+  </div>
+  <div class="profile-detail">
+    <div class="detail">
+      <p>วัน - เดือน - ปีเกิด :</p>
+    </div>
+    <div class="detail">
+      <p>{{ customer.dateOfBirth | date : "dd MMM yyyy" }}</p>
+    </div>
+  </div>
+</div>

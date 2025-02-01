@@ -1,0 +1,51 @@
+<section>
+  <app-navbar></app-navbar>
+</section>
+
+<section>
+  <div class="customer-page">
+    <div class="grid-container">
+      <aside>
+        <div class="grid-left">
+          <div class="grid-left-header">
+            <p>บัญชีของท่าน</p>
+          </div>
+          <div
+            *ngFor="let item of menuItems"
+            class="grid-item"
+            [ngClass]="{ active: selectionSection === item.section }"
+          >
+            <div class="grid-icon">
+              <img [src]="item.icon" alt="" />
+            </div>
+            <button
+              type="button"
+              class="choice"
+              [ngClass]="{ selected: selectionSection === item.section }"
+              (click)="selectSection(item.section)"
+            >
+              <p>{{ item.label }}</p>
+            </button>
+          </div>
+        </div>
+      </aside>
+      <!----------------------------------------- Personal ---------------------------------------------------->
+      <main *ngIf="selectionSection === 'personal'">
+        <app-customer-infomation></app-customer-infomation>
+      </main>
+      <!----------------------------------------- Address ---------------------------------------------------->
+      <main *ngIf="selectionSection === 'address'">
+        <app-customer-address></app-customer-address>
+      </main>
+      <!----------------------------------------- credit card ---------------------------------------------------->
+      <main *ngIf="selectionSection === 'creditCard'">
+        <app-customer-credit></app-customer-credit>
+      </main>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<section>
+  <app-footer></app-footer>
+</section>

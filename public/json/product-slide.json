@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "name": "Beats Solo 2 Wireless On-Ear Headphone",
+    "price": 25900,
+    "images": "images/slide/1.png"
+  },
+  {
+    "id": 2,
+    "name": "จอคอม Gigabyte AORUS FI27Q-P 27 IPS 2K Gaming Monitor 165Hz Demo",
+    "price": 19900,
+    "images": "images/slide/2.png"
+  },
+  {
+    "id": 3,
+    "name": "WOBKEY Rainy 75 Pro A Mechanical Keyboard",
+    "price": 4900,
+    "images": "images/slide/3.png"
+  },
+  {
+    "id": 4,
+    "name": "MOUSE (เมาส์) LOGITECH G502 X PLUS RGB WIRELESS WHITE",
+    "price": 4900,
+    "images": "images/slide/4.png"
+  },
+  {
+    "id": 5,
+    "name": "RAM (แรม) PREDATOR VESTA II RGB 32GB (16x2) DDR5 6000Mhz BLACK (BL.9BWWR.378) (LT)",
+    "price": 4900,
+    "images": "images/slide/5.png"
+  },
+  {
+    "id": 6,
+    "name": "WIRELESS/BLUETOOTH KEYBOARD AJAZZ AK992 MURKY BLUSH - RED SWITCH",
+    "price": 4900,
+    "images": "images/slide/6.png"
+  }
+]

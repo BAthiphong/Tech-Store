@@ -1,0 +1,150 @@
+<section>
+  <app-navbar></app-navbar>
+</section>
+
+<section style="background-color: #fafafa">
+  <div class="product-cart">
+    <!-- ขั้นตอนสถานะ -->
+    <div class="card-product-status">
+      <div class="product-status">
+        <p>รายละเอียดสินค้า</p>
+      </div>
+      <div class="product-status">
+        <p>ช่องทางการชำระเงิน</p>
+      </div>
+      <div class="product-status">
+        <p>ยืนยันรายการ</p>
+      </div>
+    </div>
+
+    <!-- header -->
+    <div class="cart-header">
+      <div class="cart-header-product-name">
+        <p>สินค้า</p>
+      </div>
+      <div class="cart-header-product-price">
+        <p>ราคา</p>
+      </div>
+      <div class="cart-header-product-quantity">
+        <p>จำนวน</p>
+      </div>
+      <div class="cart-header-product-total-price">
+        <p>รวมสุทธิ</p>
+      </div>
+    </div>
+
+    <!-- รายการสินค้า -->
+    <div class="card-container">
+      <!-- มีรายการสินค้าในตะกร้า -->
+      <div class="card-product-lists" *ngIf="cartItem">
+        <div *ngFor="let item of cartItemss" class="card-item">
+          <!-- รายละเอียดสินค้า -->
+          <div class="product">
+            <img
+              class="show-img"
+              [src]="item.images || 'https://placehold.co/115x115'"
+              alt="Product Image"
+            />
+            <div class="detail">
+              <p style="font-size: 16px; font-weight: 600; color: black">
+                {{ item.name }}
+              </p>
+            </div>
+            <div class="product-price">
+              <p style="font-size: 14px; font-weight: 300; color: #6b7280">
+                ฿ {{ item.price | number }}
+              </p>
+            </div>
+            <!-- จำนวนสินค้า -->
+            <div class="product-quantity">
+              <button
+                (click)="updateQuantity(item.productId, item.quantity - 1)"
+              >
+                <img src="/icons/product_subtract_icon.png" alt="ลดจำนวน" />
+              </button>
+              <p>{{ item.quantity }}</p>
+              <button
+                (click)="updateQuantity(item.productId, item.quantity + 1)"
+              >
+                <img src="/icons/product_plus_icon.png" alt="เพิ่มจำนวน" />
+              </button>
+              <button
+                (click)="removeItem(item.productId)"
+                style="color: red; margin-left: 10px"
+              >
+                ลบ
+              </button>
+            </div>
+            <!-- ยอดรวมราคาสินค้า -->
+            <div class="total-price">
+              <p style="font-size: 16px; font-weight: 600; color: red">
+                ฿ {{ item.totalPrice | number }}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- ไม่มีรายการสินค้าในตะกร้า -->
+      <div class="card-product-lists" *ngIf="!cartItem">
+        <div class="emty-item">
+          <p>ยังไม่มีสินค้า</p>
+        </div>
+      </div>
+      <!-- สรุปยอดเงิน -->
+      <div class="card-product-price">
+        <!-- รายละเอียดราคา -->
+        <div class="detail">
+          <p style="font-size: 24px; font-weight: 600; color: black; margin: 0">
+            รายละเอียด
+          </p>
+          <div class="price">
+            <p>ราคาสินค้า</p>
+            <p>{{ totalAmount | number }} ฿</p>
+          </div>
+          <div class="price">
+            <p>ค่าจัดส่ง</p>
+            <p>0 ฿</p>
+          </div>
+          <div class="price">
+            <p>ส่วนลด</p>
+            <p>0 ฿</p>
+          </div>
+        </div>
+
+        <!-- ราคารวมทั้งหมด -->
+        <div class="sum-price">
+          <div class="final-price">
+            <p
+              style="font-size: 16px; font-weight: 600; color: black; margin: 0"
+            >
+              ราคาทั้งหมด
+            </p>
+            <p
+              style="font-size: 16px; font-weight: 300; color: black; margin: 0"
+            >
+              {{ totalAmount | number }} ฿
+            </p>
+          </div>
+          <div class="btn-submit">
+            <button (click)="checkout()">
+              <p
+                style="
+                  font-size: 14px;
+                  font-weight: 400;
+                  color: #ebf5ff;
+                  margin: 0;
+                "
+              >
+                ดำเนินการต่อ
+              </p>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <app-footer></app-footer>
+</section>

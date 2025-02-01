@@ -1,0 +1,103 @@
+<section>
+  <!-- navbar -->
+  <app-navbar></app-navbar>
+  <!-- detail -->
+  <div class="all-product-page">
+    <!-- header -->
+    <div class="product-category-header">
+      <div class="category-header">
+        <p style="font-size: 16px; font-weight: 400; color: #000000">Moniter</p>
+        <p style="font-size: 14px; font-weight: 300; color: #6b7280">
+          มีจำนวน xxx รายการ
+        </p>
+      </div>
+      <div>เรียงตาม :</div>
+    </div>
+  </div>
+</section>
+
+<section class="show-product">
+  <div class="container">
+    <!-- progressbar -->
+    <aside>
+      <div class="price-range-container">
+        <div class="price-range">
+          <p>ราคาสินค้า</p>
+          <p>0-90000 บาท</p>
+        </div>
+        <div class="progrees-bar">
+          <input
+            type="range"
+            [min]="minPrice"
+            [max]="maxPrice"
+            [(ngModel)]="currentPrice"
+            step="100"
+            (input)="updateCardPosition($event)"
+          />
+
+          <!-- การ์ดแสดงตัวเลข -->
+          <div
+            class="tooltip"
+            [style.left.px]="tooltipPosition"
+            [style.bottom.px]="20"
+          >
+            {{ currentPrice }}
+          </div>
+        </div>
+        <!-- price min max -->
+        <div class="pricemin-pricemax">
+          <p>0 ฿</p>
+          <p>{{ currentPrice }} ฿</p>
+        </div>
+        <!-- btn search -->
+        <div>
+          <button class="search-btn">search</button>
+        </div>
+        <!-- <div class="detail">
+          <p>Price Range: {{ minPrice }} THB - {{ maxPrice }} THB</p>
+          <p>Selected Price: {{ currentPrice }} THB</p>
+        </div> -->
+      </div>
+    </aside>
+    <!-- product -->
+    <main *ngIf="paginatedProducts && paginatedProducts.length > 0">
+      <div *ngFor="let product of paginatedProducts">
+        <div class="card" (click)="productDetail(product)">
+          <img class="card-product-img" [src]="product.images[0]" alt="" />
+          <div class="card-product-content">
+            <p class="card-product-title">{{ product.name }}</p>
+            <p class="card-product-detail">{{ product.description }}</p>
+            <p class="card-product-price">{{ product.price | number }} B</p>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</section>
+
+<!-- Pagination Controls -->
+<section class="pagination-controls">
+  <button (click)="changePage(currentPage - 1)" [disabled]="currentPage <= 1">
+    <
+  </button>
+  <!-- Pagination Number Controls -->
+  <div class="pagination-numbers">
+    <button
+      *ngFor="let page of numbersToShow()"
+      [class.active]="page === currentPage"
+      (click)="changePage(page)"
+    >
+      {{ page }}
+    </button>
+  </div>
+  <button
+    (click)="changePage(currentPage + 1)"
+    [disabled]="currentPage >= totalPages"
+  >
+    >
+  </button>
+</section>
+
+<section>
+  <app-footer></app-footer>
+</section>

@@ -1,0 +1,113 @@
+<!------------------------------------------------------------- Navebar ------------------------------------------------------------->
+<app-navbar></app-navbar>
+<!------------------------------------------------------------- Image header ------------------------------------------------------------->
+<app-images-header-slide></app-images-header-slide>
+
+<!------------------------------------------------------------- Products category ------------------------------------------------------------->
+<section class="product-category">
+  <app-product-categoty></app-product-categoty>
+</section>
+
+<!------------------------------------------------------------- Popular products ------------------------------------------------------------->
+<section style="background-color: #f3f4f6; margin-top: 64px">
+  <div class="popular-products-slide">
+    <div class="popular-products-slide-header">
+      <div class="popular-products-slide-header-left-detail">
+        <img src="/icons/popular-products-icon.svg" alt="" />
+        <p
+          style="
+            margin-left: 8px;
+            margin-bottom: 0px;
+            font-size: 18px;
+            font-weight: 600;
+          "
+        >
+          สินค้ายอดนิยม
+        </p>
+      </div>
+      <div class="popular-products-slide-header-right-detail">
+        <a href="">
+          <p style="font-size: 18px; font-weight: 600; margin-right: 8px">
+            ดูทั้งหมด
+          </p>
+          <img
+            src="/icons/view-all-icon.svg"
+            style="width: 8px; height: 16px"
+            alt=""
+          />
+        </a>
+      </div>
+    </div>
+    <app-product-slide></app-product-slide>
+  </div>
+</section>
+
+<!------------------------------------------------------------- Image show ------------------------------------------------------------->
+<section class="three-image">
+  <img class="show-img" src="/images/banner/promote_3.png" alt="" />
+  <img class="show-img" src="/images/banner/promote_4.png" alt="" />
+</section>
+
+<!------------------------------------------------------------- Special price products ------------------------------------------------------------->
+<section>
+  <app-special-product-price></app-special-product-price>
+</section>
+
+<!------------------------------------------------------------- Popular products slide ------------------------------------------------------------->
+<section style="background-color: #f3f4f6; margin-top: 64px">
+  <div class="popular-products-slide">
+    <div class="popular-products-slide-header">
+      <div class="popular-products-slide-header-left-detail">
+        <img src="/icons/new-product-icon.svg" alt="" />
+        <p
+          style="
+            margin-left: 8px;
+            margin-bottom: 0px;
+            font-size: 18px;
+            font-weight: 600;
+          "
+        >
+          สินค้ามาใหม่
+        </p>
+      </div>
+      <div class="popular-products-slide-header-right-detail">
+        <a href="">
+          <p style="font-size: 18px; font-weight: 600; margin-right: 8px">
+            ดูทั้งหมด
+          </p>
+          <img
+            src="/icons/view-all-icon.svg"
+            style="width: 8px; height: 16px"
+            alt=""
+          />
+        </a>
+      </div>
+    </div>
+    <app-product-slide></app-product-slide>
+  </div>
+</section>
+
+<!------------------------------------------------------------- Image grid ------------------------------------------------------------->
+<section class="img-grid">
+  <div class="parent">
+    <div class="img-grid-1">
+      <img class="show-img" src="/images/banner/promote_5.png" alt="" />
+    </div>
+    <div class="img-grid-2">
+      <img class="show-img" src="/images/banner/promote_7.png" alt="" />
+    </div>
+    <div class="img-grid-3">
+      <img class="show-img" src="/images/banner/promote_8.png" alt="" />
+    </div>
+    <div class="img-grid-4">
+      <img class="show-img" src="/images/banner/promote_6.png" alt="" />
+    </div>
+  </div>
+</section>
+
+<!------------------------------------------------------------- Footer ------------------------------------------------------------->
+<section>
+  <app-footer></app-footer>
+</section>
+<!------------------------------------------------------------- linking SwiperJs Script ------------------------------------------------------------->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>

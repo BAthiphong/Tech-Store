@@ -1,0 +1,1820 @@
+<section>
+  <app-navbar></app-navbar>
+  <div class="header-navigation-container">
+    <div class="header-navigation-detail">
+      <div class="header-navigation-content">
+        <img src="/icons/home_icon.png" alt="" />
+        <p>หน้าหลัก</p>
+        <p>></p>
+        <p>monitor</p>
+        <p>></p>
+        <p>รายละเอียด</p>
+      </div>
+    </div>
+  </div>
+</section>
+<!-------------------------------------------------------------- Header -------------------------------------------------------------->
+
+<section class="product">
+  <div class="product-container">
+    <main>
+      <p-galleria
+        [value]="images"
+        [showItemNavigators]="true"
+        [responsiveOptions]="responsiveOptions"
+        [circular]="true"
+        [numVisible]="5"
+        [(activeIndex)]="activeIndex"
+      >
+        <ng-template pTemplate="item" let-item>
+          <img
+            class="img-pgalleria-header"
+            [src]="item.itemImageSrc"
+            style="width: 100%"
+          />
+        </ng-template>
+        <ng-template pTemplate="thumbnail" let-item>
+          <div class="grid grid-nogutter justify-content-center">
+            <img
+              class="img-pgalleria-thumbnail"
+              [src]="item.thumbnailImageSrc"
+            />
+          </div>
+        </ng-template>
+      </p-galleria>
+    </main>
+    <aside>
+      <div class="product-content">
+        <div class="product-badge">มีสินค้า</div>
+        <div class="product-title">{{ product.name }}</div>
+        <div class="product-detail">{{ product.description }}</div>
+        <div class="product-price">{{ product.price }} ฿</div>
+        <div class="product-count">
+          <div class="count-btn">
+            <a href="">
+              <img src="/icons/product_subtract_icon.png" alt="" />
+            </a>
+            <p>{{ numOfProduct }}</p>
+            <a href="">
+              <img src="/icons/product_plus_icon.png" alt="" />
+            </a>
+          </div>
+          <div class="add-to-cart">
+            <p>เพิ่มลงตะกร้า</p>
+          </div>
+          <div class="buy-now">
+            <p>ซื้อเลย</p>
+          </div>
+        </div>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<!------------------------------------------------------------- Cpu ------------------------------------------------------------->
+<section class="detail">
+  <div class="detail-container" [class.expanded]="isExpanded">
+    <div class="detail-contents" *ngIf="product.type === 'CPU'">
+      <div
+        class="detail-content-header"
+        style="font-size: 16px; font-weight: 600; color: #1e429f"
+      >
+        คุณสมบัติสินค้า
+      </div>
+      <div class="detail-content"></div>
+      <!-- title and detail start -->
+      <div class="detail-content">
+        <div class="title">Brand</div>
+      </div>
+      <div class="detail-content">
+        <div class="detail">{{ product.details.brands }}</div>
+      </div>
+      <!-- title and detail end -->
+      <!-- title and detail start -->
+      <div class="detail-content content-grey-color">
+        <div class="title">Series</div>
+      </div>
+      <div class="detail-content content-grey-color">
+        <div class="detail">{{ product.details.series }}</div>
+      </div>
+      <!-- title and detail end -->
+      <!-- title and detail start -->
+      <div class="detail-content">
+        <div class="title">Processor Number</div>
+      </div>
+      <div class="detail-content">
+        <div class="detail">{{ product.details.processorNumber }}</div>
+      </div>
+      <!-- title and detail end -->
+      <!-- title and detail start -->
+      <div class="detail-content content-grey-color">
+        <div class="title">Socket Type</div>
+      </div>
+      <div class="detail-content content-grey-color">
+        <div class="detail">{{ product.details.socketType }}</div>
+      </div>
+      <!-- title and detail end -->
+      <!-- title and detail start -->
+      <div class="detail-content">
+        <div class="title">Cores/Threads</div>
+      </div>
+      <div class="detail-content">
+        <div class="detail">{{ product.details.coresThreads }}</div>
+      </div>
+      <!-- title and detail end -->
+      <!-- title and detail start -->
+      <div class="detail-content content-grey-color">
+        <div class="title">Base Frequency</div>
+      </div>
+      <div class="detail-content content-grey-color">
+        <div class="detail">{{ product.details.baseFrequency }}</div>
+      </div>
+      <!-- title and detail end -->
+      <!-- title and detail start -->
+      <div class="detail-content">
+        <div class="title">Max Turbo Frequency</div>
+      </div>
+      <div class="detail-content">
+        <div class="detail">{{ product.details.maxTurboFrequency }}</div>
+      </div>
+      <!-- title and detail end -->
+      <!-- title and detail start -->
+      <div class="detail-content content-grey-color">
+        <div class="title">L2 Cache</div>
+      </div>
+      <div class="detail-content content-grey-color">
+        <div class="detail">{{ product.details.l2Cache }}</div>
+      </div>
+      <!-- title and detail end -->
+      <!-- title and detail start -->
+      <div class="detail-content">
+        <div class="title">L3 Cache</div>
+      </div>
+      <div class="detail-content">
+        <div class="detail">{{ product.details.l3Cache }}</div>
+      </div>
+      <!-- title and detail end -->
+      <!-- title and detail start -->
+      <div class="detail-content content-grey-color">
+        <div class="title">Graphics Models</div>
+      </div>
+      <div class="detail-content content-grey-color">
+        <div class="detail">{{ product.details.graphicsModels }}</div>
+      </div>
+      <!-- title and detail end -->
+      <!-- title and detail start -->
+      <div class="detail-content">
+        <div class="title">CPU Cooler</div>
+      </div>
+      <div class="detail-content">
+        <div class="detail">{{ product.details.cpuCooler }}</div>
+      </div>
+      <!-- title and detail end -->
+      <!-- title and detail start -->
+      <div class="detail-content content-grey-color">
+        <div class="title">Maximum Turbo Power</div>
+      </div>
+      <div class="detail-content content-grey-color">
+        <div class="detail">{{ product.details.maximumTurboPower }}</div>
+      </div>
+      <!-- title and detail end -->
+      <!-- title and detail start -->
+      <div class="detail-content">
+        <div class="title">Warranty</div>
+      </div>
+      <div class="detail-content">
+        <div class="detail">{{ product.details.warranty }}</div>
+      </div>
+      <!-- title and detail end -->
+    </div>
+
+    <button class="toggle-btn" (click)="toggleContent()">
+      {{ isExpanded ? "แสดงน้อยลง" : "ดูเพิ่มเติม" }}
+    </button>
+  </div>
+</section>
+<!------------------------------------------------------------- Mainboard ------------------------------------------------------------->
+<section class="detail">
+  <div class="detail-container" *ngIf="product.type === 'Mainboard'">
+    <div
+      class="detail-content-header"
+      style="font-size: 16px; font-weight: 600; color: #1e429f"
+    >
+      คุณสมบัติสินค้า
+    </div>
+    <div class="detail-content"></div>
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">Brand</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.brands }}</div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">CPU Support</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.cpuSupport }}</div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">CPU Socket</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.cpuSocket }}</div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">Chipset</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.chipset }}</div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">Memory Slots</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.memorySlots }}</div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">Memory Type</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.memoryType }}</div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">Max Memory</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.maxMemmory }}</div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">Onboard Graphics</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.onboardGraphics }}</div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">Onboard Audio Chipset</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.onboardAudioShipset }}</div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">Audio Channels</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.audioChanels }}</div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">Expansion Slots</div>
+    </div>
+    <div class="detail-content">
+      <div
+        *ngFor="
+          let expansionSlots of product.details.expansionSlots;
+          let i = index
+        "
+      >
+        <div class="detail">{{ expansionSlots }}</div>
+      </div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">Storage</div>
+    </div>
+    <div class="detail-content">
+      <div *ngFor="let storage of product.details.storage; let i = index">
+        <div class="detail">{{ storage }}</div>
+      </div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">Rear Panel I/O</div>
+    </div>
+    <div class="detail-content">
+      <div *ngFor="let rearPanel of product.details.rearPanel; let i = index">
+        <div class="detail">{{ rearPanel }}</div>
+      </div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">LAN Chipset</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.lanChipset }}</div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">LAN Speed</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.lanSpeed }}</div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">Dimensions</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.dimensions }}</div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">Power Pin</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.powerPin }}</div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">Form Factor</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.formFactor }}</div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">Warranty</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.warranty }}</div>
+    </div>
+    <!-- title and detail end -->
+  </div>
+</section>
+<!------------------------------------------------------------- GPU ------------------------------------------------------------->
+<section class="detail">
+  <div class="detail-container" *ngIf="product.type === 'GPU'">
+    <div
+      class="detail-content-header"
+      style="font-size: 16px; font-weight: 600; color: #1e429f"
+    >
+      คุณสมบัติสินค้า
+    </div>
+    <div class="detail-content"></div>
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">Brand</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.brands }}</div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">GPU Series</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.gpuSeries }}</div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">GPU Model</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.gpuModel }}</div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">Memory Size</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.memorySize }}</div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">Bus Standards</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.busStandard }}</div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">CUDA® Cores</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.cudaCore }}</div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">Memory Interface</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.memoryInterface }}</div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">Boost Clock</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.boostClock }}</div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">Base Clock</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.baseClock }}</div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">Memory Clock</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.memoryClock }}</div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">Max Digital Resolution</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.maxDigitalResolution }}</div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">HDMI Port</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.hdmiPort }}</div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">Display Port</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.displayPort }}</div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">Power Connector</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.powerConector }}</div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">Power Requirement</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.powerRequirement }}</div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">Dimensions</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.dimension }}</div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">Warranty</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.warranty }}</div>
+    </div>
+    <!-- title and detail end -->
+  </div>
+</section>
+<!------------------------------------------------------------- Ram ------------------------------------------------------------->
+<section class="detail">
+  <div class="detail-container" *ngIf="product.type === 'Ram'">
+    <div
+      class="detail-content-header"
+      style="font-size: 16px; font-weight: 600; color: #1e429f"
+    >
+      คุณสมบัติสินค้า
+    </div>
+    <div class="detail-content"></div>
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">Brand</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.brands }}</div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">Memory Series</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.memorySeries }}</div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">Memory Capacity</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.memoryCapacity }}</div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">Memory Type</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.memoryType }}</div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">Cas Latency</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.casLatency }}</div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">Tested Latency</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.testedlatency }}</div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">SPD Voltage</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.sdpVoltage }}</div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">Memory Color</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.memoryColor }}</div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">Warranty</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.warranty }}</div>
+    </div>
+    <!-- title and detail end -->
+  </div>
+</section>
+<!------------------------------------------------------------- Storage ------------------------------------------------------------->
+<section class="detail">
+  <div class="detail-container" *ngIf="product.type === 'Storage'">
+    <div
+      class="detail-content-header"
+      style="font-size: 16px; font-weight: 600; color: #1e429f"
+    >
+      คุณสมบัติสินค้า
+    </div>
+    <div class="detail-content"></div>
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">Brand</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.brands }}</div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">Form Factor</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.formFactor }}</div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">Capacity</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.capacity }}</div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">Interface</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.interface }}</div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">Read Speed</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.readSpeed }}</div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">Write Speed</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.writeSpeed }}</div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">Warranty</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.warranty }}</div>
+    </div>
+    <!-- title and detail end -->
+  </div>
+</section>
+<!------------------------------------------------------------- Power Supply ------------------------------------------------------------->
+<section class="detail">
+  <div class="detail-container" *ngIf="product.type === 'Powersupply'">
+    <div
+      class="detail-content-header"
+      style="font-size: 16px; font-weight: 600; color: #1e429f"
+    >
+      คุณสมบัติสินค้า
+    </div>
+    <div class="detail-content"></div>
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">Brand</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.brands }}</div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">Energy Efficient</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.energyEfficient }}</div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">Modular</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.modular }}</div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">Continuous Power W</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.continuousPowerW }}</div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">PSU Form Factor</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.psuFormFactor }}</div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">MB Connector</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.mbConnector }}</div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">CPU Connector</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.cpuConnector }}</div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">CPU Connector</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.cpuConnector }}</div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">PCIe Connector</div>
+    </div>
+    <div class="detail-content">
+      <div
+        *ngFor="
+          let pcieConnector of product.details.pcieConnector;
+          let i = index
+        "
+      >
+        <div class="detail">{{ pcieConnector }}</div>
+      </div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">SATA Connector</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.sataConnector }}</div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">Fan Size</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.fanSize }}</div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">Dimensions</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.dimensions }}</div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">Weight</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.psuWeight }}</div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">Protections</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.protection }}</div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">Power Range</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.powerRage }}</div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">Warranty</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.warranty }}</div>
+    </div>
+    <!-- title and detail end -->
+  </div>
+</section>
+<!------------------------------------------------------------- Cooler ------------------------------------------------------------->
+<section class="detail">
+  <div class="detail-container" *ngIf="product.type === 'Cooler'">
+    <div
+      class="detail-content-header"
+      style="font-size: 16px; font-weight: 600; color: #1e429f"
+    >
+      คุณสมบัติสินค้า
+    </div>
+    <div class="detail-content"></div>
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">Brand</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.brands }}</div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">Cooler Model</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.coolerModel }}</div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">Type</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.coolerType }}</div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">Exterior Color</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.exteriorColor }}</div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">CPU Socket</div>
+    </div>
+    <div class="detail-content">
+      <div
+        *ngFor="let cpuSocket of product.details.cpuSocketCooler; let i = index"
+      >
+        <div class="detail">{{ cpuSocket }}</div>
+      </div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">Radiator Dimensions</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.radiatorDimension }}</div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">Radiator Material</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.readiatorMeterail }}</div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">Radiator Size</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.radiatorSize }}</div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">Thermal Design Power (TDP)</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.thermalDesignPower }}</div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">Pump Dimensions</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.pumpSpeed }}</div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">Fan Dimensions</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.fanDimensions }}</div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">Fan LED Type</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.fanLedType }}</div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">Fan Speed</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.fanSpeed }}</div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">Fan Airflow</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.fanAirflow }}</div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">Fan Noise</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.fanNoise }}</div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">Fan Connector</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.fanConnector }}</div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">Weight</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.coolerWeight }}</div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">Cooler Type</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.coolerType }}</div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">Warranty</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.warranty }}</div>
+    </div>
+    <!-- title and detail end -->
+  </div>
+</section>
+<!------------------------------------------------------------- Mouse ------------------------------------------------------------->
+<section class="detail">
+  <div class="detail-container" *ngIf="product.type === 'Mouse'">
+    <div
+      class="detail-content-header"
+      style="font-size: 16px; font-weight: 600; color: #1e429f"
+    >
+      คุณสมบัติสินค้า
+    </div>
+    <div class="detail-content"></div>
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">Brand</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.brands }}</div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">Dimensions W x D x H</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.dimensions }}</div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">Tilt scroll function</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.tiltScrollFunction }}</div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">Click life span</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.clickLifeSpan }}</div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">Scroll Whell</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.scrollWhell }}</div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">Number of buttons</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.nummerOfButtons }}</div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">Battery Life</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.batterryLife }}</div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">Battery Type</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.batterryType }}</div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">Sensor Resolution</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.sensorResolution }}</div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">Sensor technology</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.sensorTechnology }}</div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">Wireless technology</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.wirelessTechnology }}</div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">Color</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.color }}</div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">Warranty</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.warranty }}</div>
+    </div>
+    <!-- title and detail end -->
+  </div>
+</section>
+<!------------------------------------------------------------- Keyboard ------------------------------------------------------------->
+<section class="detail">
+  <div class="detail-container" *ngIf="product.type === 'Keyboard'">
+    <div
+      class="detail-content-header"
+      style="font-size: 16px; font-weight: 600; color: #1e429f"
+    >
+      คุณสมบัติสินค้า
+    </div>
+    <div class="detail-content"></div>
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">Brand</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.brands }}</div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">Switch Name</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.switchName }}</div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">Connectivity</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.keyboardConnectivity }}</div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">Lighting</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.lighting }}</div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">Localization</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.localization }}</div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">Wireless Frequency</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.wirelessFrequency }}</div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">Battery Type and Quantity</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.batteryTypeAndQuantity }}</div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">Dimension</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.dimension }}</div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">Weight</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.keyboardWeight }}</div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">Materail</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.materail }}</div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">USB Port</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.usbPort }}</div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">Type</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.type }}</div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">WIRED/WIRELESS</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.wiredOrWireless }}</div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">Warranty</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.warranty }}</div>
+    </div>
+    <!-- title and detail end -->
+  </div>
+</section>
+<!------------------------------------------------------------- Monitor ------------------------------------------------------------->
+<section class="detail">
+  <div class="detail-container" *ngIf="product.type === 'Monitor'">
+    <div
+      class="detail-content-header"
+      style="font-size: 16px; font-weight: 600; color: #1e429f"
+    >
+      คุณสมบัติสินค้า
+    </div>
+    <div class="detail-content"></div>
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">Brand</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.brands }}</div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">Display Size (in.)</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.displaySize }}</div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">Panel Size (in.)</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.panelSize }}</div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">Resolution</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.resolution }}</div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">Resolution Type</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.resolutionType }}</div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">Display color</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.displayColor }}</div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">Display Viewing Area (H x V)</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.displayViewingArea }}</div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">Brightness</div>
+    </div>
+    <div class="detail-content">
+      <div *ngFor="let brightness of product.details.brightness; let i = index">
+        <div class="detail">{{ brightness }}</div>
+      </div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">Contrast ratio</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.contrastRatio }}</div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">Response Time</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.responseTime }}</div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">Aspect Ratio</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.aspectRatio }}</div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">Refresh Rate</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.refreshRate }}</div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">Screen Curvature</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.screenCurvature }}</div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">Pixel Pitch (H x V)</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.pixelPitch }}</div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">Viewing Angle (CR≧10)</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.viewingAngle }}</div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">Color Gamut</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.colorGamut }}</div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">HDR Support</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.hdrSupport }}</div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">Adaptive Sync</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.adaptiveSync }}</div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">Display Surface</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.displaySurface }}</div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">Flicker free</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.flickerFree }}</div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">Low Blue Light</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.lowBlueLight }}</div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">Connectivity</div>
+    </div>
+    <div class="detail-content">
+      <div
+        *ngFor="let connectivity of product.details.connectivity; let i = index"
+      >
+        <div class="detail">{{ connectivity }}</div>
+      </div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">Signal Frequency</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.signalFrequency }}</div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">Power Consumption</div>
+    </div>
+    <div class="detail-content">
+      <div
+        *ngFor="
+          let powerConsumption of product.details.powerConsumption;
+          let i = index
+        "
+      >
+        <div class="detail">{{ powerConsumption }}</div>
+      </div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">Mechanical</div>
+    </div>
+    <div class="detail-content">
+      <div *ngFor="let mechanical of product.details.mechanical; let i = index">
+        <div class="detail">{{ mechanical }}</div>
+      </div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">Dimension (W x H x D)</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.dimension }}</div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">Weight (Esti.)</div>
+    </div>
+    <div class="detail-content">
+      <div *ngFor="let weight of product.details.weight; let i = index">
+        <div class="detail">{{ weight }}</div>
+      </div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">Color</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.color }}</div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">Warranty</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.warranty }}</div>
+    </div>
+    <!-- title and detail end -->
+  </div>
+</section>
+<!------------------------------------------------------------- Headphone ------------------------------------------------------------->
+<section class="detail">
+  <div class="detail-container" *ngIf="product.type === 'Headphone'">
+    <div
+      class="detail-content-header"
+      style="font-size: 16px; font-weight: 600; color: #1e429f"
+    >
+      คุณสมบัติสินค้า
+    </div>
+    <div class="detail-content"></div>
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">Brand</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.brands }}</div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">Color</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.color }}</div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">Connector</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.connector }}</div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">Driver Unit</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.driverUnit }}</div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">Frequency Response</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.frequencyResponse }}</div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">Sensitivity</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.sensitivity }}</div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">Input Impedance</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.inputImpedance }}</div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">Mic. Sensitivity</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.micSensitivity }}</div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">Mic. Impedance</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.micImpedance }}</div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">Warranty</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.warranty }}</div>
+    </div>
+    <!-- title and detail end -->
+  </div>
+</section>
+<!------------------------------------------------------------- Case ------------------------------------------------------------->
+<section class="detail">
+  <div class="detail-container" *ngIf="product.type === 'Case'">
+    <div
+      class="detail-content-header"
+      style="font-size: 16px; font-weight: 600; color: #1e429f"
+    >
+      คุณสมบัติสินค้า
+    </div>
+    <div class="detail-content"></div>
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">Brand</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.brands }}</div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">Form Factor</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.formFactor }}</div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">Mainboard Support</div>
+    </div>
+    <div class="detail-content">
+      <div
+        *ngFor="
+          let mainboardSupport of product.details.mainboardSupport;
+          let i = index
+        "
+      >
+        <div class="detail">{{ mainboardSupport }}</div>
+      </div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">VGA Support</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.vgaSupport }}</div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">Color</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.color }}</div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">CPU Cooler Support</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.cpuCoolerSupport }}</div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">Power Supply Support</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.powerSupplySupport }}</div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">Front I/O</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.frontIO }}</div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">Drive Bays Support</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.driveBaysSupport }}</div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">Fan Installment</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.fanInstallment }}</div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">Fan Support (Front)</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.fanSupportFront }}</div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">Fan Support (Top)</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.fanSupportTop }}</div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">Fan Support (Side)</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.fanSupportSide }}</div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">Fan Support (Rear)</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.fanSupportRear }}</div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">Fan Support (Bottim)</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.fanSupportBottom }}</div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">MAX Radiator Support</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.maxRadiatorSupport }}</div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">Radiator Support (Front)</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.radidatorSupportFront }}</div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">Radiator Support (Top)</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.radiatorSupportTop }}</div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">Radiator Support (Side)</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.radiatoSupportSide }}</div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">Radiator Support (Rear)</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.radiatorSupportRear }}</div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">Radiator Support (Bottom)</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.radiatorSupportBottom }}</div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">Accessories</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.accessories }}</div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">Dimensions W x D x H</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.dimensions }}</div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">Weight</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.caseWeight }}</div>
+    </div>
+    <!-- title and detail end -->
+    <!-- title and detail start -->
+    <div class="detail-content">
+      <div class="title">Warranty</div>
+    </div>
+    <div class="detail-content">
+      <div class="detail">{{ product.details.warranty }}</div>
+    </div>
+    <!-- title and detail end -->
+  </div>
+</section>
+<!------------------------------------------------------------- Popular products slide ------------------------------------------------------------->
+<section class="recomment">
+  <div class="recomment-container">
+    <div class="recomment-title">
+      <img src="/icons/new-product-icon.svg" alt="" />
+      <p
+        style="
+          margin-left: 8px;
+          margin-bottom: 0px;
+          font-size: 18px;
+          font-weight: 600;
+        "
+      >
+        สินค้าแนะนำ
+      </p>
+    </div>
+  </div>
+  <app-product-slide></app-product-slide>
+</section>
+
+<section>
+  <app-footer></app-footer>
+</section>

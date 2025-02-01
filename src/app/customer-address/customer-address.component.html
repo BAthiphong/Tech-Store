@@ -1,0 +1,106 @@
+<!-- กรณีไม่มีข้อมูลที่อยู่ -->
+<div *ngIf="showForm && !editInfomation" class="infomation">
+  <div class="infomation-navbar">
+    <div class="nav-bar-left">
+      <img src="/icons/profile-edit-vector.png" alt="icon" />
+      <p>ที่อยู่การจัดส่ง</p>
+    </div>
+    <div class="nav-bar-right" (click)="toggleEditMode()">
+      <div style="text-decoration: underline; cursor: pointer">
+        เพิ่มที่อยู่
+      </div>
+    </div>
+  </div>
+  <div class="infomation-profile">กรุณากรอกที่อยู่สำหรับการจัดส่ง</div>
+</div>
+
+<!-- กรณีกำลังแก้ไขข้อมูล -->
+<div *ngIf="editInfomation && shippingAddress" class="infomation">
+  <div class="infomation-navbar">
+    <div class="nav-bar-left">
+      <img src="/icons/profile-edit-vector.png" alt="icon" />
+      <p>แก้ไขที่อยู่การจัดส่ง</p>
+    </div>
+    <div class="nav-bar-right" (click)="cancelEdit()">
+      <div style="text-decoration: underline; cursor: pointer">กลับ</div>
+    </div>
+  </div>
+  <form (ngSubmit)="saveChanges()" class="update-infomation-profile">
+    <div class="infomation-detail">
+      <p>ชื่อ - นามสกุล</p>
+      <input type="text" [(ngModel)]="shippingAddress.fullName" name="name" />
+    </div>
+    <div class="infomation-detail">
+      <p>หมายเลขโทรศัพท์</p>
+      <input type="text" [(ngModel)]="shippingAddress.phoneNumber" name="phone" />
+    </div>
+    <div class="infomation-grid">
+      <div class="infomation-detail">
+        <p>ตำบล</p>
+        <input
+          type="text"
+          [(ngModel)]="shippingAddress.subDistrict"
+          name="subdistrict"
+        />
+      </div>
+      <div class="infomation-detail">
+        <p>อำเภอ</p>
+        <input
+          type="text"
+          [(ngModel)]="shippingAddress.district"
+          name="district"
+        />
+      </div>
+    </div>
+    <div class="infomation-grid">
+      <div class="infomation-detail">
+        <p>จังหวัด</p>
+        <input
+          type="text"
+          [(ngModel)]="shippingAddress.province"
+          name="province"
+        />
+      </div>
+      <div class="infomation-detail">
+        <p>รหัสไปรษณีย์</p>
+        <input
+          type="text"
+          [(ngModel)]="shippingAddress.zipCode"
+          name="postalCode"
+        />
+      </div>
+    </div>
+    <div class="btn-submit">
+      <button type="submit">บันทึกข้อมูล</button>
+    </div>
+  </form>
+</div>
+
+<!-- กรณีข้อมูลสมบูรณ์แล้ว -->
+<div
+  *ngIf="!editInfomation && detailComplete && shippingAddress"
+  class="infomation"
+>
+  <div class="infomation-navbar">
+    <div class="nav-bar-left">
+      <img src="/icons/profile-edit-vector.png" alt="icon" />
+      <p>ที่อยู่การจัดส่ง</p>
+    </div>
+    <div class="nav-bar-right" (click)="toggleEditMode()">
+      <div style="text-decoration: underline; cursor: pointer">แก้ไข</div>
+    </div>
+  </div>
+  <div class="profile-detail">
+    <div class="detail">
+      <p>ที่อยู่ :</p>
+    </div>
+    <div class="detail">
+      <p>
+        {{ shippingAddress.fullName }}<br />
+        {{ shippingAddress.phoneNumber }}<br />
+        {{ shippingAddress.subDistrict }} ต.{{ shippingAddress.district }}<br />
+        จ.{{ shippingAddress.province }} {{ shippingAddress.zipCode }}
+      </p>
+    </div>
+  </div>
+</div>

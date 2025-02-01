@@ -1,0 +1,171 @@
+.infomation {
+  border-radius: 5px;
+  box-shadow: 0 4px 8px 0 rgba(46, 42, 42, 0.05),
+    0 6px 20px 0 rgba(46, 42, 42, 0.05);
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  padding-bottom: 1rem;
+}
+
+.infomation-navbar {
+  background-color: #3f83f8;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  height: 68px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem;
+}
+
+.nav-bar-left {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 28px;
+  gap: 1rem;
+}
+
+.nav-bar-left img {
+  width: 18px;
+  height: 18px;
+}
+
+.nav-bar-left p {
+  font-size: 18px;
+  font-weight: 600;
+  color: #ffff;
+}
+
+.nav-bar-right {
+  font-weight: 300;
+  font-size: 16px;
+  color: #ffffff;
+}
+
+
+.grid-right .profile-edit {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  font-size: 18px;
+  font-weight: 600;
+  color: #111928;
+}
+
+.infomation-profile {
+  display: flex;
+  justify-content: center;
+  margin: 1rem 0;
+  padding-top: 1rem;
+}
+
+.update-infomation-profile {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  margin: 1rem 0;
+  padding: 0 1rem;
+  row-gap: 1rem;
+}
+
+.infomation-detail {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.infomation-detail p{
+  font-weight: 400;
+  font-size: 16px;
+  color: black;
+}
+
+.infomation-detail input{
+  height: 60px;
+  border-radius: 5px;
+  border: 0.2px solid #9CA3AF;
+  padding: 16px 20px;
+}
+
+.infomation-grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 441px 441px;
+  gap: 0.7rem;
+}
+
+.btn-submit {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+  width: 220px;
+  height: 60px;
+  width: 100%;
+}
+
+.btn-submit button {
+  background-color: #3F83F8;
+  font-size: 16px;
+  font-weight: 300;
+  color: #EBF5FF;
+  width: 220px;
+  height: 60px;
+  border: none;
+  border-radius: 5px;
+}
+
+.profile-detail {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+  gap: 2rem;
+  margin: 0 1rem;
+  margin-top: 1rem;
+  padding: 0 1rem;
+  border: 0.2px solid #6B7280;
+  border-radius: 6px;
+}
+
+.profile-detail .detail-header {
+  margin: 1rem 0;
+}
+
+.profile-detail .detail-header p{
+  font-size: 16px;
+  font-weight: 600;
+  color: black;
+}
+
+.profile-detail .detail p{
+  margin: 1rem 0;
+}
+
+.profile-detail .detail p{
+  font-size: 16px;
+  font-weight: 300;
+  color: black;
+}
+
+.image-frame {
+  width: 80px; /* ความกว้างของกรอบ */
+  height: 80px; /* ความสูงของกรอบ */
+  overflow: hidden; /* ซ่อนส่วนที่เกินออกมาจากกรอบ */
+  position: relative; /* ใช้สำหรับจัดตำแหน่ง */
+  border-radius: 50%; /* มุมโค้ง (ถ้าต้องการ) */
+  margin: 1rem 0;
+}
+
+.image-frame img {
+  width: 100%; /* ปรับความกว้างของรูปให้พอดีกับกรอบ */
+  height: 100%; /* ปรับความสูงของรูปให้พอดีกับกรอบ */
+  object-fit: cover; /* ตัดรูปให้พอดีกับกรอบและแสดงเฉพาะส่วนที่กรอบครอบ */
+  object-position: center; /* แสดงภาพตรงกลางของกรอบ */
+  display: block; /* ป้องกัน spacing จาก inline elements */
+}

@@ -1,0 +1,281 @@
+.login-page {
+  background-color: #ebf5f5ff;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-container {
+  width: 1200px;
+  height: 720px;
+  background-color: #f9fafb;
+  position: relative;
+  overflow: hidden;
+}
+
+.login-container button.hidden {
+  background-color: transparent;
+  border-color: #fff;
+}
+
+.login-container form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  row-gap: 1rem;
+  flex-direction: column;
+  padding: 0 40px;
+  height: 100%;
+}
+
+.login-container form .form-header {
+  display: flex;
+  align-items: center;
+  height: 80px;
+}
+
+.login-container form .form-header p {
+  margin: 0;
+  font-family: "Koulen", sans-serif;
+  font-size: 48px;
+  font-weight: 400;
+}
+
+.login-container form .form-header h1 {
+  margin: 0;
+}
+
+.login-container form .form-input {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  row-gap: 1rem;
+}
+
+.login-container form .form-input p {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: black;
+}
+
+.login-container form .form-input .form-forgetpassword {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+}
+
+.login-container form .form-input .form-forgetpassword p {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 300;
+}
+
+.login-container form .btn-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  row-gap: 1rem;
+  width: 450px;
+}
+
+.login-container form .btn-form img {
+  width: 56px;
+  height: 56px;
+}
+
+.login-container form .btn-form .header-border {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.login-container form .btn-form .header-border .borders {
+  border: 1px solid #6b7280;
+  width: 100%;
+}
+
+.login-container form .btn-form .header-border p {
+  margin: 0;
+  margin-right: 16px;
+  margin-left: 16px;
+  font-size: 14px;
+  font-weight: 300;
+  color: #4b5563;
+}
+
+.login-container form .btn-form .btn-signup {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.login-container form .btn-form .btn-signup p {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 300;
+  color: #6b7280;
+  padding-right: 16px;
+  
+}
+
+.login-container form .btn-form .btn-signup button {
+  width: 101px;
+  height: 24px;
+  background: none;
+}
+
+.login-container form .btn-form .btn-signup button p {
+  background: none;
+  color: #1f2a37;
+  font-size: 16px;
+  font-weight: 300;
+  text-decoration: underline;
+}
+
+.login-container input {
+  background-color: white;
+  border: none;
+  margin: 8px 0;
+  padding: 10px 15px;
+  font-size: 16px;
+  font-weight: 300;
+  width: 450px;
+  height: 60px;
+  outline: none;
+}
+
+.login-container button {
+  background-color: white;
+  border: none;
+  width: 450px;
+  height: 60px;
+  font-size: 16px;
+  font-weight: 300;
+  color: #374151;
+}
+
+.form-container {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  transition: all 0.6s ease-out;
+}
+
+.sign-in {
+  right: 0;
+  width: 50%;
+  z-index: 2;
+}
+
+.login-container.active .sign-in {
+  transform: translateX(-100%);
+  opacity: 0;
+}
+
+.sign-up {
+  right: 0;
+  width: 50%;
+  opacity: 0;
+  z-index: 1;
+}
+
+.login-container.active .sign-up {
+  transform: translateX(-100%);
+  opacity: 1;
+  z-index: 5;
+  animation: move 0.6s;
+}
+
+@keyframes move {
+  0%,
+  49.99% {
+    opacity: 0;
+    z-index: 1;
+  }
+  50%,
+  100% {
+    opacity: 1;
+    z-index: 5;
+  }
+}
+
+.toggle-container {
+  position: absolute;
+  top: 0;
+  right: 50%;
+  width: 50%;
+  height: 100%;
+  overflow: hidden;
+  transition: all 0.6s ease-in-out;
+  z-index: 1000;
+}
+
+.toggle-container img {
+  width: 600px;
+  height: 720px;
+  background-size: cover; /* ทำให้ภาพขยายเต็มพื้นที่ */
+  background-position: center; /* จัดตำแหน่งภาพให้อยู่กลาง */
+}
+
+.login-container.active .toggle-container {
+  transform: translateX(100%);
+}
+
+.toggle {
+  background-color: #512da8;
+  height: 100%;
+  color: white;
+  position: relative;
+  right: 100%;
+  height: 100%;
+  width: 200%;
+  transform: translateX(0);
+  transition: all 0.6s ease-in-out;
+}
+
+.login-container.active .toggle {
+  transform: translateX(50%);
+}
+
+.toggle-panel {
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0 30px;
+  text-align: center;
+  top: 0;
+  transform: translateX(0);
+  transition: all 0.6s ease-in-out;
+}
+
+.toggle-left {
+  transform: translateX(-200%);
+}
+
+.login-container.active .toggle-left {
+  transform: translateX(0);
+}
+
+.toggle-right {
+  right: 0;
+  transform: translateX(0);
+}
+
+.login-container.active .toggle-right {
+  transform: translateX(200%);
+}

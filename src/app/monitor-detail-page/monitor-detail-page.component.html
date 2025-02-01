@@ -1,0 +1,400 @@
+<section>
+  <app-navbar></app-navbar>
+  <div class="header-navigation-container">
+    <div class="header-navigation-detail">
+      <div class="header-navigation-content">
+        <img src="/icons/home_icon.png" alt="" />
+        <p>หน้าหลัก</p>
+        <p>></p>
+        <p>monitor</p>
+        <p>></p>
+        <p>รายละเอียด</p>
+      </div>
+    </div>
+  </div>
+</section>
+<!-------------------------------------------------- HEADER -------------------------------------------------->
+<section class="product">
+  <div class="product-container">
+    <main>
+      <p-galleria
+        [value]="images"
+        [showItemNavigators]="true"
+        [responsiveOptions]="responsiveOptions"
+        [circular]="true"
+        [numVisible]="5"
+        [(activeIndex)]="activeIndex"
+      >
+        <ng-template pTemplate="item" let-item>
+          <img
+            class="img-pgalleria-header"
+            [src]="item.itemImageSrc"
+            style="width: 100%"
+          />
+        </ng-template>
+        <ng-template pTemplate="thumbnail" let-item>
+          <div class="grid grid-nogutter justify-content-center">
+            <img
+              class="img-pgalleria-thumbnail"
+              [src]="item.thumbnailImageSrc"
+            />
+          </div>
+        </ng-template>
+      </p-galleria>
+    </main>
+    <aside>
+      <div class="product-content">
+        <div class="product-badge">มีสินค้า</div>
+        <div class="product-title">{{ product.name }}</div>
+        <!-- <div class="product-detail">{{ product.description }}</div> -->
+        <div class="product-descript">
+          <div class="detail">
+            <div class="product-descript-brand">
+              <p>แบรนด์: {{ product.details.brands }}</p>
+            </div>
+            <div class="product-descript-brand">
+              <p>รหัสสินค้า: xxxxxxx</p>
+            </div>
+          </div>
+          <div class="product-descript-brand">
+            <p>สินค้าในคลัง {{ product.quantity }}</p>
+          </div>
+        </div>
+        <div class="product-price">{{ product.price | number }} ฿</div>
+        <div class="product-count">
+          <div class="count-btn">
+            <a (click)="decreaseQuantity()" href="javascript:void(0)">
+              <img src="/icons/product_subtract_icon.png" alt="" />
+            </a>
+            <p>{{ numOfProduct }}</p>
+            <a (click)="increaseQuantity()" href="javascript:void(0)">
+              <img src="/icons/product_plus_icon.png" alt="" />
+            </a>
+          </div>
+          <div class="add-to-cart" (click)="addToCart()">
+            <p>เพิ่มลงตะกร้า</p>
+          </div>
+          <div class="buy-now">
+            <p>ซื้อเลย</p>
+          </div>
+        </div>
+        <div class="favorite">
+          <div class="like">
+            <img src="icons/favorite.png" alt="">
+            <p>เพิ่มเข้ารายการโปรด</p>
+          </div>
+          <div class="share">
+            <p>แชร์:</p>
+            <img src="icons/share_link.png" alt="">
+            <img src="icons/share_line.png" alt="">
+            <img src="icons/share_facebook.png" alt="">
+          </div>
+        </div>
+      </div>
+      <div class="credit">
+        <p>100% การันตีความปลอดภัย</p>
+        <div class="credit-support">
+          <img src="icons/formkit_visa.png" alt="">
+          <img src="icons/logos_mastercard.png" alt="">
+          <img src="icons/logos_paypal.png" alt="">
+        </div>
+      </div>
+    </aside>
+  </div>
+</section>
+<!-------------------------------------------------- Product detail -------------------------------------------------->
+<section class="detail">
+  <div class="detail-container" [class.expanded]="isExpanded">
+    <div class="detail-contents" *ngIf="product.type === 'Monitor'">
+      <div
+        class="detail-content-header"
+        style="font-size: 16px; font-weight: 600; color: #1e429f"
+      >
+        คุณสมบัติสินค้า
+      </div>
+      <div class="detail-content"></div>
+      <!-- title and detail start -->
+      <div class="detail-content">
+        <div class="title">Brand</div>
+      </div>
+      <div class="detail-content">
+        <div class="detail">{{ product.details.brands }}</div>
+      </div>
+      <!-- title and detail end -->
+      <!-- title and detail start -->
+      <div class="detail-content content-grey-color">
+        <div class="title">Display Size (in.)</div>
+      </div>
+      <div class="detail-content content-grey-color">
+        <div class="detail">{{ product.details.displaySize }}</div>
+      </div>
+      <!-- title and detail end -->
+      <!-- title and detail start -->
+      <div class="detail-content">
+        <div class="title">Panel Size (in.)</div>
+      </div>
+      <div class="detail-content">
+        <div class="detail">{{ product.details.panelSize }}</div>
+      </div>
+      <!-- title and detail end -->
+      <!-- title and detail start -->
+      <div class="detail-content content-grey-color">
+        <div class="title">Resolution</div>
+      </div>
+      <div class="detail-content content-grey-color">
+        <div class="detail">{{ product.details.resolution }}</div>
+      </div>
+      <!-- title and detail end -->
+      <!-- title and detail start -->
+      <div class="detail-content">
+        <div class="title">Resolution Type</div>
+      </div>
+      <div class="detail-content">
+        <div class="detail">{{ product.details.resolutionType }}</div>
+      </div>
+      <!-- title and detail end -->
+      <!-- title and detail start -->
+      <div class="detail-content content-grey-color">
+        <div class="title">Display color</div>
+      </div>
+      <div class="detail-content content-grey-color">
+        <div class="detail">{{ product.details.displayColor }}</div>
+      </div>
+      <!-- title and detail end -->
+      <!-- title and detail start -->
+      <div class="detail-content">
+        <div class="title">Display Viewing Area (H x V)</div>
+      </div>
+      <div class="detail-content">
+        <div class="detail">{{ product.details.displayViewingArea }}</div>
+      </div>
+      <!-- title and detail end -->
+      <!-- title and detail start -->
+      <div class="detail-content content-grey-color">
+        <div class="title">Brightness</div>
+      </div>
+      <div class="detail-content content-grey-color">
+        <div
+          *ngFor="let brightness of product.details.brightness; let i = index"
+        >
+          <div class="detail">{{ brightness }}</div>
+        </div>
+      </div>
+      <!-- title and detail end -->
+      <!-- title and detail start -->
+      <div class="detail-content">
+        <div class="title">Contrast ratio</div>
+      </div>
+      <div class="detail-content">
+        <div class="detail">{{ product.details.contrastRatio }}</div>
+      </div>
+      <!-- title and detail end -->
+      <!-- title and detail start -->
+      <div class="detail-content content-grey-color">
+        <div class="title">Response Time</div>
+      </div>
+      <div class="detail-content content-grey-color">
+        <div class="detail">{{ product.details.responseTime }}</div>
+      </div>
+      <!-- title and detail end -->
+      <!-- title and detail start -->
+      <div class="detail-content">
+        <div class="title">Aspect Ratio</div>
+      </div>
+      <div class="detail-content">
+        <div class="detail">{{ product.details.aspectRatio }}</div>
+      </div>
+      <!-- title and detail end -->
+      <!-- title and detail start -->
+      <div class="detail-content content-grey-color">
+        <div class="title">Refresh Rate</div>
+      </div>
+      <div class="detail-content content-grey-color">
+        <div class="detail">{{ product.details.refreshRate }}</div>
+      </div>
+      <!-- title and detail end -->
+      <!-- title and detail start -->
+      <div class="detail-content">
+        <div class="title">Screen Curvature</div>
+      </div>
+      <div class="detail-content">
+        <div class="detail">{{ product.details.screenCurvature }}</div>
+      </div>
+      <!-- title and detail end -->
+      <!-- title and detail start -->
+      <div class="detail-content content-grey-color">
+        <div class="title">Pixel Pitch (H x V)</div>
+      </div>
+      <div class="detail-content content-grey-color">
+        <div class="detail">{{ product.details.pixelPitch }}</div>
+      </div>
+      <!-- title and detail end -->
+      <!-- title and detail start -->
+      <div class="detail-content">
+        <div class="title">Viewing Angle (CR≧10)</div>
+      </div>
+      <div class="detail-content">
+        <div class="detail">{{ product.details.viewingAngle }}</div>
+      </div>
+      <!-- title and detail end -->
+      <!-- title and detail start -->
+      <div class="detail-content content-grey-color">
+        <div class="title">Color Gamut</div>
+      </div>
+      <div class="detail-content content-grey-color">
+        <div class="detail">{{ product.details.colorGamut }}</div>
+      </div>
+      <!-- title and detail end -->
+      <!-- title and detail start -->
+      <div class="detail-content">
+        <div class="title">HDR Support</div>
+      </div>
+      <div class="detail-content">
+        <div class="detail">{{ product.details.hdrSupport }}</div>
+      </div>
+      <!-- title and detail end -->
+      <!-- title and detail start -->
+      <div class="detail-content content-grey-color">
+        <div class="title">Adaptive Sync</div>
+      </div>
+      <div class="detail-content content-grey-color">
+        <div class="detail">{{ product.details.adaptiveSync }}</div>
+      </div>
+      <!-- title and detail end -->
+      <!-- title and detail start -->
+      <div class="detail-content">
+        <div class="title">Display Surface</div>
+      </div>
+      <div class="detail-content">
+        <div class="detail">{{ product.details.displaySurface }}</div>
+      </div>
+      <!-- title and detail end -->
+      <!-- title and detail start -->
+      <div class="detail-content content-grey-color">
+        <div class="title">Flicker free</div>
+      </div>
+      <div class="detail-content content-grey-color">
+        <div class="detail">{{ product.details.flickerFree }}</div>
+      </div>
+      <!-- title and detail end -->
+      <!-- title and detail start -->
+      <div class="detail-content">
+        <div class="title">Low Blue Light</div>
+      </div>
+      <div class="detail-content">
+        <div class="detail">{{ product.details.lowBlueLight }}</div>
+      </div>
+      <!-- title and detail end -->
+      <!-- title and detail start -->
+      <div class="detail-content content-grey-color">
+        <div class="title">Connectivity</div>
+      </div>
+      <div class="detail-content content-grey-color">
+        <div
+          *ngFor="
+            let connectivity of product.details.connectivity;
+            let i = index
+          "
+        >
+          <div class="detail">{{ connectivity }}</div>
+        </div>
+      </div>
+      <!-- title and detail end -->
+      <!-- title and detail start -->
+      <div class="detail-content">
+        <div class="title">Signal Frequency</div>
+      </div>
+      <div class="detail-content">
+        <div class="detail">{{ product.details.signalFrequency }}</div>
+      </div>
+      <!-- title and detail end -->
+      <!-- title and detail start -->
+      <div class="detail-content content-grey-color">
+        <div class="title">Power Consumption</div>
+      </div>
+      <div class="detail-arr content-grey-color">
+        <div
+          *ngFor="
+            let powerConsumption of product.details.powerConsumption;
+            let i = index
+          "
+        >
+          <div class="detail">{{ powerConsumption }}</div>
+        </div>
+      </div>
+      <!-- title and detail end -->
+      <!-- title and detail start -->
+      <div class="detail-content">
+        <div class="title">Mechanical</div>
+      </div>
+      <div class="detail-content">
+        <div
+          *ngFor="let mechanical of product.details.mechanical; let i = index"
+        >
+          <div class="detail">{{ mechanical }}</div>
+        </div>
+      </div>
+      <!-- title and detail end -->
+      <!-- title and detail start -->
+      <div class="detail-content content-grey-color">
+        <div class="title">Dimension (W x H x D)</div>
+      </div>
+      <div class="detail-content content-grey-color">
+        <div class="detail">{{ product.details.dimension }}</div>
+      </div>
+      <!-- title and detail end -->
+      <!-- title and detail start -->
+      <div class="detail-content">
+        <div class="title">Weight (Esti.)</div>
+      </div>
+      <div class="detail-content">
+        <div *ngFor="let weight of product.details.weight; let i = index">
+          <div class="detail">{{ weight }}</div>
+        </div>
+      </div>
+      <!-- title and detail end -->
+      <!-- title and detail start -->
+      <div class="detail-content content-grey-color">
+        <div class="title">Color</div>
+      </div>
+      <div class="detail-content content-grey-color">
+        <div class="detail">{{ product.details.color }}</div>
+      </div>
+      <!-- title and detail end -->
+      <!-- title and detail start -->
+      <div class="detail-content">
+        <div class="title">Warranty</div>
+      </div>
+      <div class="detail-content">
+        <div class="detail">{{ product.details.warranty }}</div>
+      </div>
+      <!-- title and detail end -->
+    </div>
+    <button class="toggle-btn" (click)="toggleContent()">
+      {{ isExpanded ? "แสดงน้อยลง" : "ดูเพิ่มเติม" }}
+    </button>
+  </div>
+</section>
+<!----------------------------------------------------- Popular products slide --------------------------------------------------->
+<section class="recomment">
+  <div class="recomment-container">
+    <div class="recomment-title">
+      <img src="/icons/new-product-icon.svg" alt="" />
+      <p
+        style="
+          margin-left: 8px;
+          margin-bottom: 0px;
+          font-size: 18px;
+          font-weight: 600;
+        "
+      >
+        สินค้าแนะนำ
+      </p>
+    </div>
+  </div>
+  <app-product-slide></app-product-slide>
+</section>
+<!------------------------------------------------------------- FOOTER ------------------------------------------------------------->
+<section>
+  <app-footer></app-footer>
+</section>

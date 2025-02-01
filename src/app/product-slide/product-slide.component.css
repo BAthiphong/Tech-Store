@@ -1,0 +1,210 @@
+.product-card {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+  row-gap: 1rem;
+  width: 230px;
+  height: 350px;
+  border: 0.2px solid #9ca3af;
+  border-radius: 5px;
+  background-color: white;
+}
+
+.product-card .product-img {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 163px;
+}
+
+/* .product-img {
+} */
+
+.product-img img {
+  border-radius: 10px;
+  width: 206px;
+  height: 163px;
+}
+
+.product-detail {
+  display: flex;
+  height: 100%;
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+.product-detail p {
+  font-size: 14px;
+  font-weight: 400;
+  margin: 0;
+}
+
+.product-price {
+  display: flex;
+  height: 100%;
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+.product-price p {
+  color: #C81E1E;
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0;
+}
+
+/* .card-wrapper {
+  margin-top: 24px;
+}
+
+.card-list .card-item {
+  list-style: none;
+}
+
+.card-list .card-item .card-link {
+  width: 230px;
+  display: block;
+  background: white;
+  padding: 18px;
+  border-radius: 20px;
+  text-decoration: none;
+  border: 2px solid transparent;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.05);
+  transition: 0.2s ease;
+}
+
+.card-list .card-item .card-link:hover {
+  border-color: #5372F0;
+}
+
+.card-list .card-link .card-img {
+  width: 100%;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.card-list .card-link .badge {
+  color: #5372F0;
+  pad: 8px 16px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  margin: 16px 0 18px;
+  background: #DDE4FF;
+  width: fit-content;
+  border-radius: 59px;
+
+}
+
+.card-list .card-link .card-title {
+  font-size: 1.19rem;
+  color: black;
+  font-weight: 600;
+}
+
+.card-list .card-link .card-button {
+  height: 35px;
+  width: 35px;
+  border-radius: 50%;
+  margin-right: 30px 0 5px;
+  background: none;
+  cursor: pointer;
+  border: 2px solid black;
+  transition: 0.4s ease;
+}
+
+.card-list .card-link:hover .card-button {
+  color: #fff;
+  background: #5372F0;
+} */
+
+/* primeNg */
+
+/* .product-card {
+  width: 230px;
+  height: 350px;
+  border-radius: 20px;
+  background: #fff;
+}
+
+.product-card-img img {
+  border-radius: 20px;
+}
+
+.carousel-item {
+  text-align: center;
+}
+
+.carousel-item img {
+  width: 100%;
+  border-radius: 8px;
+} */
+
+::ng-deep .p-carousel {
+  width: 100%;
+  margin-top: 16px;
+  border-radius: 0;
+}
+
+/* ซ่อน Pagination (Dots) */
+/* ::ng-deep .p-carousel .p-carousel-indicators {
+  display: none !important;
+} */
+::ng-deep .p-carousel .p-carousel-indicators {
+  margin-top: 1rem;
+}
+
+::ng-deep .p-carousel .p-carousel-indicators .p-carousel-indicator button {
+  background-color: silver;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin: 0 0.1rem;
+}
+
+::ng-deep
+  .p-carousel
+  .p-carousel-indicators
+  .p-carousel-indicator.p-highlight
+  button {
+  background-color: #2196f3;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+::ng-deep .p-carousel .p-carousel-content .p-carousel-prev {
+  width: 48px;
+  height: 48px;
+  color: #233876;
+  border: 0 none;
+  background: #ebf5ff;
+  border-radius: 50%;
+  transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;
+  margin: 0.5rem;
+}
+::ng-deep .p-carousel .p-carousel-content .p-carousel-next {
+  width: 48px;
+  height: 48px;
+  color: #233876;
+  border: 0 none;
+  background: #ebf5ff;
+  border-radius: 50%;
+  transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;
+  margin: 0.5rem;
+}
+
+/* ปรับตำแหน่งของปุ่ม Prev */
+::ng-deep .p-carousel .p-carousel-prev {
+  left: +30px;
+}
+
+/* ปรับตำแหน่งของปุ่ม Next */
+::ng-deep .p-carousel .p-carousel-next {
+  right: +30px;
+}
+
+::ng-deep .p-carousel-item .p-carousel-item-active .p-carousel-item-start {
+  border-radius: 0;
+}

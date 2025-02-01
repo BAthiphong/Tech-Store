@@ -1,0 +1,117 @@
+<!-- กรณีไม่มีข้อมูล -->
+<div *ngIf="showForm && !editInfomation" class="infomation">
+  <div class="infomation-navbar">
+    <div class="nav-bar-left">
+      <img src="/icons/credit02.png" alt="icon" />
+      <p>ช่องทางการชำระเงิน</p>
+    </div>
+    <div class="nav-bar-right" (click)="toggleEditMode()">
+      <div style="text-decoration: underline; cursor: pointer">เพิ่มบัตร</div>
+    </div>
+  </div>
+  <div class="infomation-profile">กรุณาเพิ่มช่องทางการชำระเงิน</div>
+</div>
+
+<!-- กรณีกำลังแก้ไขข้อมูล -->
+<div *ngIf="editInfomation && paymentMethod" class="infomation">
+  <div class="infomation-navbar">
+    <div class="nav-bar-left">
+      <img src="/icons/credit02.png" alt="icon" />
+      <p>แก้ไขช่องทางการชำระเงิน</p>
+    </div>
+    <div class="nav-bar-right" (click)="cancelEdit()">
+      <div style="text-decoration: underline; cursor: pointer">กลับ</div>
+    </div>
+  </div>
+  <form (ngSubmit)="saveChanges()" class="update-infomation-profile">
+    <div class="infomation-grid">
+      <div class="infomation-detail">
+        <p>Card Number</p>
+        <input
+          type="number"
+          [(ngModel)]="paymentMethod.cardNumber"
+          name="cardNumber"
+          placeholder="0000 0000 0000 0000"
+        />
+      </div>
+      <div class="infomation-detail">
+        <p>Cardholder Name</p>
+        <input
+          type="text"
+          [(ngModel)]="paymentMethod.cardholderName"
+          name="cardHolder"
+        />
+      </div>
+    </div>
+    <div class="infomation-grid-third">
+      <div class="infomation-detail">
+        <p>MM</p>
+        <input
+          type="number"
+          [(ngModel)]="paymentMethod.month"
+          name="expMonth"
+          placeholder="MM"
+        />
+      </div>
+      <div class="infomation-detail">
+        <p>YY</p>
+        <input
+          type="number"
+          [(ngModel)]="paymentMethod.year"
+          name="expYear"
+          placeholder="YY"
+        />
+      </div>
+      <div class="infomation-detail">
+        <p>CVV</p>
+        <input
+          type="number"
+          [(ngModel)]="paymentMethod.cvv"
+          name="cvv"
+          placeholder="***"
+        />
+      </div>
+    </div>
+    <div class="btn-submit">
+      <button type="submit">บันทึกข้อมูล</button>
+    </div>
+  </form>
+</div>
+
+<!-- กรณีข้อมูลสมบูรณ์ -->
+<div
+  *ngIf="!editInfomation && detailComplete && paymentMethod"
+  class="infomation"
+>
+  <div class="infomation-navbar">
+    <div class="nav-bar-left">
+      <img src="/icons/credit02.png" alt="icon" />
+      <p>ช่องทางการชำระเงิน</p>
+    </div>
+    <div class="nav-bar-right" (click)="toggleEditMode()">
+      <div style="text-decoration: underline; cursor: pointer">แก้ไข</div>
+    </div>
+  </div>
+  <div class="profile-detail">
+    <div class="left">
+      <div class="detail-header">
+        <p style="font-weight: 400; font-size: 16px">
+          ****
+          {{
+            paymentMethod?.cardNumber
+              ? paymentMethod.cardNumber.toString().slice(-4)
+              : "****"
+          }}
+        </p>
+        <p style="font-weight: 300; font-size: 16px; color: #6b7280">
+          Exp Date {{ paymentMethod?.month }}/{{ paymentMethod?.year }}
+        </p>
+      </div>
+    </div>
+    <div class="right">
+      <p style="font-weight: 600; font-size: 16px; color: #1e429f">
+        ค่าเริ่มต้น
+      </p>
+    </div>
+  </div>
+</div>

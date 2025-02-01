@@ -1,0 +1,279 @@
+<section>
+  <app-navbar></app-navbar>
+  <div class="header-navigation-container">
+    <div class="header-navigation-detail">
+      <div class="header-navigation-content">
+        <img src="/icons/home_icon.png" alt="" />
+        <p>หน้าหลัก</p>
+        <p>></p>
+        <p>power supply</p>
+        <p>></p>
+        <p>รายละเอียด</p>
+      </div>
+    </div>
+  </div>
+</section>
+<!-------------------------------------------------- HEADER -------------------------------------------------->
+<section class="product">
+  <div class="product-container">
+    <main>
+      <p-galleria
+        [value]="images"
+        [showItemNavigators]="true"
+        [responsiveOptions]="responsiveOptions"
+        [circular]="true"
+        [numVisible]="5"
+        [(activeIndex)]="activeIndex"
+      >
+        <ng-template pTemplate="item" let-item>
+          <img
+            class="img-pgalleria-header"
+            [src]="item.itemImageSrc"
+            style="width: 100%"
+          />
+        </ng-template>
+        <ng-template pTemplate="thumbnail" let-item>
+          <div class="grid grid-nogutter justify-content-center">
+            <img
+              class="img-pgalleria-thumbnail"
+              [src]="item.thumbnailImageSrc"
+            />
+          </div>
+        </ng-template>
+      </p-galleria>
+    </main>
+    <aside>
+      <div class="product-content">
+        <div class="product-badge">มีสินค้า</div>
+        <div class="product-title">{{ product.name }}</div>
+        <!-- <div class="product-detail">{{ product.description }}</div> -->
+        <div class="product-descript">
+          <div class="detail">
+            <div class="product-descript-brand">
+              <p>แบรนด์: {{ product.details.brands }}</p>
+            </div>
+            <div class="product-descript-brand">
+              <p>รหัสสินค้า: xxxxxxx</p>
+            </div>
+          </div>
+          <div class="product-descript-brand">
+            <p>สินค้าในคลัง {{ product.quantity }}</p>
+          </div>
+        </div>
+        <div class="product-price">{{ product.price | number }} ฿</div>
+        <div class="product-count">
+          <div class="count-btn">
+            <a (click)="decreaseQuantity()" href="javascript:void(0)">
+              <img src="/icons/product_subtract_icon.png" alt="" />
+            </a>
+            <p>{{ numOfProduct }}</p>
+            <a (click)="increaseQuantity()" href="javascript:void(0)">
+              <img src="/icons/product_plus_icon.png" alt="" />
+            </a>
+          </div>
+          <div class="add-to-cart" (click)="addToCart()">
+            <p>เพิ่มลงตะกร้า</p>
+          </div>
+          <div class="buy-now">
+            <p>ซื้อเลย</p>
+          </div>
+        </div>
+        <div class="favorite">
+          <div class="like">
+            <img src="icons/favorite.png" alt="">
+            <p>เพิ่มเข้ารายการโปรด</p>
+          </div>
+          <div class="share">
+            <p>แชร์:</p>
+            <img src="icons/share_link.png" alt="">
+            <img src="icons/share_line.png" alt="">
+            <img src="icons/share_facebook.png" alt="">
+          </div>
+        </div>
+      </div>
+      <div class="credit">
+        <p>100% การันตีความปลอดภัย</p>
+        <div class="credit-support">
+          <img src="icons/formkit_visa.png" alt="">
+          <img src="icons/logos_mastercard.png" alt="">
+          <img src="icons/logos_paypal.png" alt="">
+        </div>
+      </div>
+    </aside>
+  </div>
+</section>
+<!-------------------------------------------------- Product detail -------------------------------------------------->
+<section class="detail">
+  <div class="detail-container" [class.expanded]="isExpanded">
+    <div class="detail-contents" *ngIf="product.type === 'Powersupply'">
+      <div
+        class="detail-content-header"
+        style="font-size: 16px; font-weight: 600; color: #1e429f"
+      >
+        คุณสมบัติสินค้า
+      </div>
+      <div class="detail-content"></div>
+      <!-- title and detail start -->
+      <div class="detail-content">
+        <div class="title">Brand</div>
+      </div>
+      <div class="detail-content">
+        <div class="detail">{{ product.details.brands }}</div>
+      </div>
+      <!-- title and detail end -->
+      <!-- title and detail start -->
+      <div class="detail-content content-grey-color">
+        <div class="title">Energy Efficient</div>
+      </div>
+      <div class="detail-content content-grey-color">
+        <div class="detail">{{ product.details.energyEfficient }}</div>
+      </div>
+      <!-- title and detail end -->
+      <!-- title and detail start -->
+      <div class="detail-content">
+        <div class="title">Modular</div>
+      </div>
+      <div class="detail-content">
+        <div class="detail">{{ product.details.modular }}</div>
+      </div>
+      <!-- title and detail end -->
+      <!-- title and detail start -->
+      <div class="detail-content content-grey-color">
+        <div class="title">Continuous Power W</div>
+      </div>
+      <div class="detail-content content-grey-color">
+        <div class="detail">{{ product.details.continuousPowerW }}</div>
+      </div>
+      <!-- title and detail end -->
+      <!-- title and detail start -->
+      <div class="detail-content">
+        <div class="title">PSU Form Factor</div>
+      </div>
+      <div class="detail-content">
+        <div class="detail">{{ product.details.psuFormFactor }}</div>
+      </div>
+      <!-- title and detail end -->
+      <!-- title and detail start -->
+      <div class="detail-content content-grey-color">
+        <div class="title">MB Connector</div>
+      </div>
+      <div class="detail-content content-grey-color">
+        <div class="detail">{{ product.details.mbConnector }}</div>
+      </div>
+      <!-- title and detail end -->
+      <!-- title and detail start -->
+      <div class="detail-content">
+        <div class="title">CPU Connector</div>
+      </div>
+      <div class="detail-content">
+        <div class="detail">{{ product.details.cpuConnector }}</div>
+      </div>
+      <!-- title and detail end -->
+      <!-- title and detail start -->
+      <div class="detail-content content-grey-color">
+        <div class="title">CPU Connector</div>
+      </div>
+      <div class="detail-content content-grey-color">
+        <div class="detail">{{ product.details.cpuConnector }}</div>
+      </div>
+      <!-- title and detail end -->
+      <!-- title and detail start -->
+      <div class="detail-content">
+        <div class="title">PCIe Connector</div>
+      </div>
+      <div class="detail-content">
+        <div
+          *ngFor="
+            let pcieConnector of product.details.pcieConnector;
+            let i = index
+          "
+        >
+          <div class="detail">{{ pcieConnector }}</div>
+        </div>
+      </div>
+      <!-- title and detail end -->
+      <!-- title and detail start -->
+      <div class="detail-content content-grey-color">
+        <div class="title">SATA Connector</div>
+      </div>
+      <div class="detail-content content-grey-color">
+        <div class="detail">{{ product.details.sataConnector }}</div>
+      </div>
+      <!-- title and detail end -->
+      <!-- title and detail start -->
+      <div class="detail-content">
+        <div class="title">Fan Size</div>
+      </div>
+      <div class="detail-content">
+        <div class="detail">{{ product.details.fanSize }}</div>
+      </div>
+      <!-- title and detail end -->
+      <!-- title and detail start -->
+      <div class="detail-content content-grey-color">
+        <div class="title">Dimensions</div>
+      </div>
+      <div class="detail-content content-grey-color">
+        <div class="detail">{{ product.details.dimensions }}</div>
+      </div>
+      <!-- title and detail end -->
+      <!-- title and detail start -->
+      <div class="detail-content">
+        <div class="title">Weight</div>
+      </div>
+      <div class="detail-content">
+        <div class="detail">{{ product.details.psuWeight }}</div>
+      </div>
+      <!-- title and detail end -->
+      <!-- title and detail start -->
+      <div class="detail-content content-grey-color">
+        <div class="title">Protections</div>
+      </div>
+      <div class="detail-content content-grey-color">
+        <div class="detail">{{ product.details.protection }}</div>
+      </div>
+      <!-- title and detail end -->
+      <!-- title and detail start -->
+      <div class="detail-content">
+        <div class="title">Power Range</div>
+      </div>
+      <div class="detail-content">
+        <div class="detail">{{ product.details.powerRage }}</div>
+      </div>
+      <!-- title and detail end -->
+      <!-- title and detail start -->
+      <div class="detail-content content-grey-color">
+        <div class="title">Warranty</div>
+      </div>
+      <div class="detail-content content-grey-color">
+        <div class="detail">{{ product.details.warranty }}</div>
+      </div>
+      <!-- title and detail end -->
+    </div>
+    <button class="toggle-btn" (click)="toggleContent()">
+      {{ isExpanded ? "แสดงน้อยลง" : "ดูเพิ่มเติม" }}
+    </button>
+  </div>
+</section>
+<!----------------------------------------------------- Popular products slide --------------------------------------------------->
+<section class="recomment">
+  <div class="recomment-container">
+    <div class="recomment-title">
+      <img src="/icons/new-product-icon.svg" alt="" />
+      <p
+        style="
+          margin-left: 8px;
+          margin-bottom: 0px;
+          font-size: 18px;
+          font-weight: 600;
+        "
+      >
+        สินค้าแนะนำ
+      </p>
+    </div>
+  </div>
+  <app-product-slide></app-product-slide>
+</section>
+<!------------------------------------------------------------- FOOTER ------------------------------------------------------------->
+<section>
+  <app-footer></app-footer>
+</section>

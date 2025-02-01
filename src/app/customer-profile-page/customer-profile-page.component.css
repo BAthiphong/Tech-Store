@@ -1,0 +1,74 @@
+.customer-page {
+  width: 1240px;
+  margin: auto;
+  padding-top: 64px;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 295px 925px;
+  gap: 1rem;
+  align-items: start;
+  height: 100vh;
+}
+
+/* ASIDE START */
+aside {
+  border-radius: 5px;
+  box-shadow: 0 4px 8px 0 rgba(46, 42, 42, 0.05), 0 6px 20px 0 rgba(46, 42, 42, 0.05);
+}
+
+aside .grid-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 1rem;
+}
+
+aside .grid-left .grid-left-header {
+  font-size: 18px;
+  font-weight: 600;
+  color: black;
+  margin-bottom: 1rem;
+}
+
+aside .grid-left .grid-left-header p{
+  font-size: 18px;
+  font-weight: 600;
+  color: black;
+}
+
+aside .grid-left .grid-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+aside .grid-left .grid-item .grid-icon {
+  width: 26px;
+  height: 26px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+aside .grid-left .grid-item p {
+  display: flex;
+  align-items: center;
+  margin-left: 0.5rem;
+  font-size: 16px;
+  font-weight: 300;
+}
+
+aside .choice {
+  border: none;
+  background-color: white;
+}
+
+/* ปรับสีพื้นหลังและสีตัวอักษรสำหรับเมนูที่เลือก */
+.grid-item.active button.choice.selected {
+  color: #3F83F8; /* สีตัวอักษร */
+  font-weight: 600; /* เพิ่มน้ำหนักตัวอักษร */
+}
